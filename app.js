@@ -131,7 +131,108 @@ app.get("/privacy-policy", (req, res) => {
     </html>
   `);
 });
+app..get("/terms-of-service", (req, res) => {
+  res.type("html").send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Terms of Service | Bagigi</title>
+      <style>
+        body {
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+          background: #f9fafb;
+          color: #111827;
+          padding: 32px;
+          line-height: 1.7;
+        }
+        .container {
+          max-width: 720px;
+          margin: auto;
+          background: white;
+          padding: 32px;
+          border-radius: 12px;
+          box-shadow: 0 10px 25px rgba(0,0,0,.05);
+        }
+        h1 {
+          font-size: 28px;
+          margin-bottom: 16px;
+        }
+        h2 {
+          font-size: 18px;
+          margin-top: 24px;
+        }
+        p {
+          margin-top: 12px;
+        }
+        footer {
+          margin-top: 32px;
+          font-size: 14px;
+          color: #6b7280;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="container">
+        <h1>Terms of Service</h1>
 
+        <p>
+          Welcome to Bagigi. By using this application, you agree to the following Terms of Service.
+          Please read them carefully.
+        </p>
+
+        <h2>Service Description</h2>
+        <p>
+          Bagigi is a barber appointment and service booking application designed
+          to help users book services with a single professional barber.
+        </p>
+
+        <h2>User Responsibilities</h2>
+        <ul>
+          <li>Provide accurate contact information</li>
+          <li>Attend booked appointments on time</li>
+          <li>Respect cancellation and rescheduling rules</li>
+        </ul>
+
+        <h2>Appointments & Cancellations</h2>
+        <p>
+          Appointments may be cancelled or rescheduled according to the barber’s availability.
+          Repeated no-shows may result in account restrictions.
+        </p>
+
+        <h2>Authentication</h2>
+        <p>
+          Authentication may be performed using WhatsApp or other supported methods.
+          Users are responsible for maintaining the security of their accounts.
+        </p>
+
+        <h2>Limitation of Liability</h2>
+        <p>
+          Bagigi is not responsible for service quality disputes.
+          The application serves only as a booking and communication platform.
+        </p>
+
+        <h2>Modifications</h2>
+        <p>
+          We reserve the right to update these terms at any time.
+          Continued use of the app constitutes acceptance of the updated terms.
+        </p>
+
+        <h2>Contact</h2>
+        <p>
+          For questions regarding these terms, contact:<br />
+          <strong>Email:</strong> hassanih97@gmail.com
+        </p>
+
+        <footer>
+          © ${new Date().getFullYear()} Bagigi. All rights reserved.
+        </footer>
+      </div>
+    </body>
+    </html>
+  `);
+});
 // Start the server
 app.listen(port, () => {
   console.log(`\nListening on port ${port}\n`);
