@@ -19,8 +19,105 @@ app.get('/', (req, res) => {
     console.log('WEBHOOK VERIFIED');
     res.status(200).send(challenge);
   } else {
-    res.status(403).end();
+    res.type("html").send(`
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+      <meta charset="UTF-8" />
+      <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+      <title>Bagigi | Barber Booking App</title>
+      <meta name="description" content="Book your haircut easily and professionally with Bagigi." />
+      <style>
+        body {
+          margin: 0;
+          font-family: system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+          background: linear-gradient(135deg, #111827, #1f2933);
+          color: white;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          min-height: 100vh;
+        }
+
+        .card {
+          background: rgba(255, 255, 255, 0.08);
+          backdrop-filter: blur(10px);
+          padding: 40px;
+          border-radius: 16px;
+          max-width: 420px;
+          width: 100%;
+          text-align: center;
+          box-shadow: 0 20px 40px rgba(0,0,0,.4);
+        }
+
+        h1 {
+          font-size: 32px;
+          margin-bottom: 8px;
+        }
+
+        p {
+          font-size: 16px;
+          opacity: 0.9;
+          margin-bottom: 24px;
+        }
+
+        .cta {
+          display: inline-block;
+          padding: 12px 24px;
+          background: #22c55e;
+          color: #022c22;
+          border-radius: 999px;
+          text-decoration: none;
+          font-weight: 600;
+          transition: transform .15s ease, box-shadow .15s ease;
+        }
+
+        .cta:hover {
+          transform: translateY(-2px);
+          box-shadow: 0 10px 20px rgba(34,197,94,.4);
+        }
+
+        .links {
+          margin-top: 32px;
+          font-size: 14px;
+          opacity: 0.8;
+        }
+
+        .links a {
+          color: #93c5fd;
+          text-decoration: none;
+          margin: 0 8px;
+        }
+
+        footer {
+          margin-top: 16px;
+          font-size: 12px;
+          opacity: 0.6;
+        }
+      </style>
+    </head>
+    <body>
+      <div class="card">
+        <h1>Bagigi</h1>
+        <p>Book your haircut easily and professionally</p>
+
+        <a class="cta" href="#">Download App</a>
+
+        <div class="links">
+          <a href="/privacy-policy">Privacy Policy</a> ·
+          <a href="/terms-of-service">Terms of Service</a>
+        </div>
+
+        <footer>
+          © ${new Date().getFullYear()} Bagigi
+        </footer>
+      </div>
+    </body>
+    </html>
+  `);
+
   }
+  
 });
 
 // Route for POST requests
