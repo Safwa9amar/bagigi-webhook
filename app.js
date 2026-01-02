@@ -228,7 +228,7 @@ app.get("/privacy-policy", (req, res) => {
     </html>
   `);
 });
-app..get("/terms-of-service", (req, res) => {
+app.get("/terms-of-service", (req, res) => {
   res.type("html").send(`
     <!DOCTYPE html>
     <html lang="en">
